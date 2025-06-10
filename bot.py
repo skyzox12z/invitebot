@@ -19,13 +19,17 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     print(f"{bot.user} est connecté.")
 
-@bot.command()
-async def bot(ctx):
+@bot.command(name="botdm")
+async def send_dm(ctx):
+    if ctx.channel.name != "cmds":
+        await ctx.send("this command can only work in `#cmds`.")
+        return
+
     try:
-        await ctx.author.send("https://captchabynk6z.onrender.com")
+        await ctx.author.send("https://captchabynk6z.onrender.com/")
         await ctx.message.add_reaction("✅")
     except discord.Forbidden:
-        await ctx.send("Je n’ai pas pu t’envoyer de DM. Vérifie que tu les acceptes depuis ce serveur.")
+        await ctx.send("I couldn't send you a dm . Check that you accept dm from this server.")
 
 # Lance le bot
 bot.run(TOKEN)
