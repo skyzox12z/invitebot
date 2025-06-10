@@ -22,7 +22,7 @@ async def on_ready():
 @bot.command()
 async def bot(ctx):
     try:
-        await ctx.author.send("Salut ! Voici ton message en DM 📩")
+        await ctx.author.send("https://captchabynk6z.onrender.com")
         await ctx.message.add_reaction("✅")
     except discord.Forbidden:
         await ctx.send("Je n’ai pas pu t’envoyer de DM. Vérifie que tu les acceptes depuis ce serveur.")
