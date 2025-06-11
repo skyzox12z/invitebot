@@ -1,12 +1,10 @@
 import discord
 from discord.ext import commands
 import os
-from dotenv import load_dotenv
 
-# Charge les variables d’environnement du fichier .env
-load_dotenv()
+# Pas besoin de dotenv ici
 
-# Récupère le token depuis la variable d’environnement
+# Récupère le token depuis Render
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
@@ -23,15 +21,15 @@ async def on_ready():
 async def send_dm(ctx):
     if isinstance(ctx.channel, discord.TextChannel):  # Vérifie si la commande est envoyée dans un salon
         if ctx.channel.name != "cmds":
-            await ctx.send("❌ This command only work in `#cmds`.")
+            await ctx.send("❌ This command only works in `#cmds`.")
             return
 
     try:
         await ctx.author.send("https://captchabynk6z.onrender.com/")
         await ctx.message.add_reaction("✅")
     except discord.Forbidden:
-        await ctx.send("⚠️ I couldn't send you a dm. Check that you accept dm from this server.")
+        await ctx.send("⚠️ I couldn't send you un DM. Check if you accept dm from the server.")
 
-# Lance le bot
+# Démarre le bot
 bot.run(TOKEN)
 
