@@ -27,6 +27,7 @@ async def send_dm(ctx):
     try:
         await ctx.author.send("https://captchabynk6z.onrender.com/")
         await ctx.message.add_reaction("✅")
+        await ctx.send("✅ Check your DMS !") 
     except discord.Forbidden:
         await ctx.send("⚠️ I couldn't send you un DM. Check if you accept dm from the server.")
 
